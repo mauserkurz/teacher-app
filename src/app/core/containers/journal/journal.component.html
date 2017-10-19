@@ -1,0 +1,16 @@
+<app-journal-filter
+    [groups]="storeData.groups"
+    [matters]="storeData.matters"
+    [initialSelectData]="storeData.filter"
+    (selectedData)="changeFilter($event)"
+></app-journal-filter>
+<app-journal-view
+    [currentStudents]="currentStudents"
+    [currentScores]="currentScores"
+    [currentNotes]="currentNotes"
+    [selectedMatterId]="selectedMatterId"
+    (addNote$)="addNote($event)"
+    (updateNote$)="updateNote($event)"
+    (removeNote$)="removeNote($event)"
+    (updateScore$)="updateScore($event)"
+></app-journal-view>

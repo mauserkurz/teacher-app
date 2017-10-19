@@ -1,0 +1,56 @@
+<form action="" [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+  <div class="form-group">
+    <label for="matter"></label>
+    <select id="matter" name="matter" [formControl]="matterField">
+      <option
+          *ngFor="let matter of matters; let i = index"
+          [value]="matter.id">
+        {{ matter.theme }}
+      </option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="place">Аудитория</label>
+    <input
+          type="text"
+          class="form-control"
+          id="place"
+          [formControl]="placeField"
+          name="place">
+  </div>
+  <div class="form-group" *ngIf="groupsField">
+    <label>Группы</label>
+    <label *ngFor="let group of groups; let i = index" >
+      {{ group.name }}
+      <input
+            type="checkbox"
+            name="groups"
+            value="{{ group.id }}"
+            [formControl]="groupsField.controls[i]">
+    </label>
+  </div>
+  <div class="form-group">
+    <label for="time">Дата</label>
+    <div class="input-group">
+      <input
+            class="form-control"
+            placeholder="yyyy-mm-dd"
+            id="time"
+            name="time"
+            [formControl]="dateField"
+            ngbDatepicker
+            #d="ngbDatepicker">
+      <button class="input-group-addon" (click)="d.toggle()" type="button">
+        <img src="../../../../assets/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
+      </button>
+    </div>
+    <ngb-timepicker [formControl]="timeField"></ngb-timepicker>
+  </div>
+  <div class="form-group">
+    <label for="subscription">Примечание</label>
+    <input type="text" class="form-control" id="subscription"
+           [formControl]="subscriptionField" name="subscription">
+  </div>
+  <button type="button" class="btn btn-secondary" (click)="resetForm()">Отменить</button>
+  <button type="submit" class="btn btn-primary">Добавить</button>
+</form>

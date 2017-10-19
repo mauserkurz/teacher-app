@@ -1,0 +1,59 @@
+<div *ngIf="loading" class="loading"></div>
+<header class="row">
+    <div class="col col-12 no-padding">
+        <nav class="navbar navbar-expand-lg navbar-primary bg-dark navbar-dark">
+            <a class="navbar-brand" [routerLink]="['']">
+                <img src="../assets/logo.svg" width="30" height="30" alt="logo">
+            </a>
+            <button
+                    class="navbar-toggler"
+                    type="button"
+                    aria-controls="navbarNav"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                    (click)="toggleMenu()">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" [class.show]="show">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a
+                            [routerLink]="['/']"
+                            class="nav-link"
+                            routerLinkActive="active"
+                            [routerLinkActiveOptions]="{ exact: true }">
+                            Главная
+                        </a>
+                    </li>
+                    <li class="nav-item" *ngIf="isLogged">
+                        <a
+                            href="javascript:void(0)"
+                            class="nav-link"
+                            (click)="logout()">
+                            Выход
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div *ngIf="error" class="alert alert-danger">
+        Упс, что-то пошло не так.
+        <a href="javascript:void(0)" (click)="reload()">Обновить страницу.</a>
+    </div>
+</header>
+<main class="row">
+    <div class="col col-12">
+        <router-outlet></router-outlet>
+    </div>
+</main>
+<footer>
+    <hr>
+    <div class="row">
+        <div class="col">
+            <p class="text-dark text-center">
+                @ 2017 <a href="mailto:mauserkurz98@gmail.com">Mauserkurz</a>
+            </p>
+        </div>
+    </div>
+</footer>

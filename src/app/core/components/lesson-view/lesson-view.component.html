@@ -1,0 +1,42 @@
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">Занятие</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <app-lesson-form
+          [groups]="groups"
+          [lessons]="lessons"
+          [matters]="matters"
+          (addedLesson)="addLesson($event)"
+          (updatedLesson)="updateLesson($event)"
+          [updateLesson]="preparedLesson">
+  </app-lesson-form>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Close</button>
+  </div>
+</ng-template>
+
+<table *ngIf="lessonsPerDay" class="table table-striped">
+  <tr *ngFor="let day of days" scope="row">
+    <td><span>{{ day | date:'d' }}</span> <span>{{ day | date:'MMM' }}</span></td>
+    <td>
+      <div *ngFor="let lesson of lessonsPerDay.get(day)">
+        <button type="button" class="btn btn-secondary remove-btn" (click)="removeLesson(lesson)">x</button>
+        <span (click)="openModal(content, lesson)" class="edit-btn">
+          <img src="../../../../assets/pencil.svg" width="20" height="20" alt="pencil">
+          <span>{{ lesson.date | date:'HH' }}:{{ lesson.date | date:'mm' }}</span>
+        </span>
+        <a href="javascript: void(0)"
+           (click)="filterJournal(lesson.groupIds[0], lesson.themeId)">{{_getMatterName(lesson.themeId) }}, {{
+          lesson.place
+          }}, {{
+          _getGroupName(lesson.groupIds) }}</a>
+      </div>
+    </td>
+  </tr>
+</table>
+<p>
+  <button type="button" (click)="openModal(content)" class="btn badge-info">Добавить занятия</button>
+</p>

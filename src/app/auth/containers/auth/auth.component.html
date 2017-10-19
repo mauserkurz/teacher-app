@@ -1,0 +1,25 @@
+<form action="" *ngIf="!isLogged" class="col align-self-center auth-form">
+    <div class="form-group">
+        <label for="login"></label>
+        <input id="login" type="text" class="form-control" placeholder="логин" #login>
+    </div>
+    <div class="form-group">
+        <label for="password"></label>
+        <input id="password" type="text" class="form-control" placeholder="пароль" #password>
+    </div>
+    <div class="form-group">
+        <button type="button" class="btn btn-primary" (click)="authorize(login.value, password.value)">Войти</button>
+    </div>
+    <div class="alert alert-danger" role="alert" *ngIf="error">
+        {{ error }}
+    </div>
+</form>
+<div *ngIf="isLogged">
+    <h1>Добро пожаловать!</h1>
+    <p><strong>Вы вошли как {{ user.firstName }} {{ user.lastName }}.</strong></p>
+    <p>
+        <a [routerLink]="['/core/schedule']" class="btn btn-info">Расписание</a>
+        <a [routerLink]="['/core/journal']" class="btn btn-info">Журнал</a>
+    </p>
+    <a href="javascript:void(0)" class="btn btn-danger" (click)="logout()">Выход</a>
+</div>

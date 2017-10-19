@@ -1,0 +1,7 @@
+@import 'assets/bootstrap.min.css';
+@import 'assets/freelancer.min.css';
+
+input.ng-invalid.ng-touched {
+    border: 1px solid crimson;
+    box-shadow: 0 0 10px 0 crimson;
+}

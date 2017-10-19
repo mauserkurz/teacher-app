@@ -1,0 +1,10 @@
+<app-group-list [groups]="groups" (selectedGroupId)="filterLessons($event)"></app-group-list>
+<app-lesson-view
+        [groups]="groups"
+        [lessons]="currentLessons"
+        [matters]="matters"
+        (newLesson)="addLesson($event)"
+        (oldLesson)="updateLesson($event)"
+        (removeLessonId)="removeLesson($event)"
+        (settingJournalFilter)="setJournalFilterData($event)">
+</app-lesson-view>

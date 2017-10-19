@@ -1,0 +1,26 @@
+<p *ngFor="let note of renderNotes;" class="score">
+    <a href="javascript:void(0)" (click)="showObj[note.id] = !showObj[note.id]">
+        {{ note.date | date:'d MMM' }} {{ note.studentId }} {{ note.themeId }}
+        <img src="../../../../assets/pencil.svg" width="20" height="20" alt="pencil">
+    </a>
+    <small>
+        <span *ngIf="showObj[note.id]">{{ note.text }}</span>
+        <textarea
+                *ngIf="!showObj[note.id]"
+                [(ngModel)]="note.text"
+                (keydown.enter)="update(note)">
+        </textarea>
+    </small>
+    <button
+            *ngIf="showObj[note.id]"
+            type="button"
+            class="btn btn-secondary remove-btn"
+            (click)="remove(note.id)">
+        x
+    </button>
+</p>
+<p *ngIf="!renderNotes.length" class="score">
+    <small>Напоминаний нет.</small>
+</p>
+<hr>
+<button type="button" class="btn btn-secondary" (click)="add()">Добавить</button>

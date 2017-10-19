@@ -1,0 +1,21 @@
+.alert-date {
+    font-weight: 700;
+    color: #fff;
+    border-color: #2c3e50;
+    background-color: #2c3e50;
+}
+.popover-trigger {
+    position: relative;
+    display: inline-block;
+}
+.scrollable {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+}
+.student-data {
+    display: block;
+    height: 1.5em;
+}
+.student-col {
+    min-width: 13.5em;
+}

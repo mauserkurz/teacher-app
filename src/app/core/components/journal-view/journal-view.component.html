@@ -1,0 +1,81 @@
+<div class="row scrollable" *ngIf="currentStudents">
+    <div class="col-3 student-col">
+        <table class="table table-striped">
+            <tr>
+                <th class="text-right">
+                    <span>Даты</span>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <span class="">Студенты</span>
+                </th>
+            </tr>
+            <tr *ngFor="let student of currentStudents">
+                <td>
+                    <ng-template #notePopover>
+                        <app-note-form
+                                [notes]="getNotesByStudentId(student.id)"
+                                [studentId]="student.id"
+                                [matterId]="selectedMatterId"
+                                (addNote$)="addNote($event)"
+                                (updateNote$)="updateNote($event)"
+                                (removeNote$)="removeNote($event)">
+                        </app-note-form>
+                    </ng-template>
+                    <strong
+                        class="student-data"
+                        [ngbPopover]="notePopover"
+                        placement="right"
+                        popoverTitle="Напоминания">
+                        {{ student.firstName }} {{ student.lastName }}
+                        <a
+                            href="javascript:void(0)"
+                            *ngIf="getNotesByStudentId(student.id).length"
+                            class="popover-trigger">
+                            <img src="../../../../assets/alert.svg" alt="Примечания" width="16" height="16">
+                        </a>
+                    </strong>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-9">
+        <table class="table table-striped">
+            <tr>
+                <td *ngFor="let month of getMonths(getDates(currentScores))"
+                    [colSpan]="getDaysInMonth(getDates(currentScores), month)"
+                    class="text-center">
+                    {{ getDateFromMonth(month) | date:'MMMM' }}
+                </td>
+            </tr>
+            <tr>
+                <td *ngFor="let date of getDates(currentScores)" class="text-center">
+                    <span class="alert alert-date">{{ date.getDate() }}</span>
+                </td>
+            </tr>
+            <tr *ngFor="let student of currentStudents">
+                <td *ngFor="let score of getScoresByStudentId(student.id)" class="text-center">
+                    <ng-template #scorePopover>
+                        <app-score-form
+                            [score]="score"
+                            (updateScore$)="updateScore($event)">
+                        </app-score-form>
+                    </ng-template>
+                    <a href="javascript:void(0)"
+                        [ngbPopover]="scorePopover"
+                        placement="top"
+                        popoverTitle="Отметка">
+                        <span *ngIf="score.type === 'not present'" class="alert alert-danger">x</span>
+                        <span *ngIf="score.type === 'present'" class="alert alert-primary">✔</span>
+                        <span *ngIf="score.type === 'score:1'" class="alert alert-danger">1</span>
+                        <span *ngIf="score.type === 'score:2'" class="alert alert-danger">2</span>
+                        <span *ngIf="score.type === 'score:3'" class="alert alert-warning">3</span>
+                        <span *ngIf="score.type === 'score:4'" class="alert alert-info">4</span>
+                        <span *ngIf="score.type === 'score:5'" class="alert alert-success">5</span>
+                    </a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+<form [formGroup]="filterForm">
+    <div class="btn-group group-filter" ngbRadioGroup name="groupFilter" formControlName="groupId">
+        <label ngbButtonLabel class="btn-primary" *ngFor="let group of groups; let i = index">
+            <input ngbButton type="radio" [value]="group.id" [checked]="i == 0"> {{ group.name }}
+        </label>
+    </div>
+    <label for="matter-select">
+        <select class="form-control" id="matter-select" name="matterFilter" formControlName="matterId">
+            <option *ngFor="let matter of matters" [value]="matter.id">{{ matter.theme }}</option>
+        </select>
+    </label>
+</form>

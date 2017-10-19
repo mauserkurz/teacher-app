@@ -1,0 +1,7 @@
+<form [formGroup]="scoreForm" class="form-inline">
+    <div class="btn-group" ngbRadioGroup name="scoreType" formControlName="type">
+        <label ngbButtonLabel class="btn-outline-info" *ngFor="let currentType of types">
+            <input ngbButton type="radio" [value]="currentType"> {{ currentType }}
+        </label>
+    </div>
+</form>
