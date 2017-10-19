@@ -1,0 +1,37 @@
+{
+  "static": {
+    "urls": {
+      "/0.561ca5e1f58d46117774.chunk.js": "42bb652ef28b56cb1f5c8129400dd2c564bb8442",
+      "/1.e211374e049dba2288a6.chunk.js": "1a525162d992a2677c71fde5b2924fefc0c4c159",
+      "/polyfills.f72d536a1c47f36c1b51.bundle.js": "61b6e6f5c22d11b12cb7859d710407950f0f9c96",
+      "/main.da44ece99ce5727547db.bundle.js": "aa578995426e356acf6d66a86b55d2305d31cffc",
+      "/sw-register.b6fa77a6846ea93a5a57.bundle.js": "e818c1075ddc65a63acb3518667822af4c36cd47",
+      "/vendor.b24848a82f3f47b565fd.bundle.js": "fffce1afc678a50c07e95ea2193646cd98fd6263",
+      "/inline.f4670d1d4f9b0eab08aa.bundle.js": "95c633ad3516dfea7cc528aff891970a219998e8",
+      "/styles.2a7f181be5c22be8c107.bundle.css": "5a9d0c03249ca98531a5280d7c394f6423bfe802",
+      "/assets/alert.svg": "b7853ce2264cb005f9b4bfdf9c21728172fda6ec",
+      "/assets/calendar-icon.svg": "90e292454e0839dedb77831196034acdf809ee78",
+      "/assets/favicon/android-chrome-192x192.png": "07efe3c967ab51034a791df01fa966ed393308c6",
+      "/assets/favicon/android-chrome-512x512.png": "47f0109fc3517f9ea19f8100e64bd6c7826642a2",
+      "/assets/favicon/apple-touch-icon.png": "f72ff460f053c8940254919edb49df11aa30ecc0",
+      "/assets/favicon/browserconfig.xml": "6e5511e1460b8ca974ad5c4c77e774a298e681c0",
+      "/assets/favicon/favicon-16x16.png": "284f9fe2a3c181d65c23210225914a6051770a17",
+      "/assets/favicon/favicon-32x32.png": "34fa59ba2c252446aff48c42a57f7e043ab20844",
+      "/assets/favicon/favicon.ico": "385d3d9c7e6b74b28308e9ce82475830af5c6770",
+      "/assets/favicon/manifest.json": "58dc5dd4929fac15c460ac7aa77892e57517ae53",
+      "/assets/favicon/mstile-144x144.png": "c6f5cabcda05ba3dfad8fdefb7fde2f2e14681a3",
+      "/assets/favicon/mstile-150x150.png": "8dda980bc0a4ff979bb04ee515d4b16c3eb32935",
+      "/assets/favicon/mstile-310x150.png": "bbcba2fb0034f474bbfe4c9f42386df76f747c7b",
+      "/assets/favicon/mstile-310x310.png": "562fc177770864a37a3d13ca1bc36b0fecd3de66",
+      "/assets/favicon/mstile-70x70.png": "7ae68e451da1a6f128de35f8572470a14f4e9067",
+      "/assets/favicon/safari-pinned-tab.svg": "e4983253d8c5a073a8061961a9e54128044b11be",
+      "/assets/freelancer.min.css": "a0f19e318d84dbe0d2c424f0a01af04e165a7553",
+      "/assets/logo.png": "fa69ace35e078c9d0f43a8f7ab9636d2cfff1c90",
+      "/assets/logo.svg": "fa6f265fb1cb3df8142aa88ed5f9c3aeeb44dc72",
+      "/assets/pencil.svg": "c29e5e2f888033aa93a9dcbef0102c1baca47a1c",
+      "/assets/bootstrap.min.css": "9fea5b860efabd0211c019958077a0e0c7c8ed16",
+      "/index.html": "8f32f9f10cb94e3688d2874bd623d79c37648fb5"
+    },
+    "_generatedFromWebpack": true
+  }
+}
