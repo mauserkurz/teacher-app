@@ -45,7 +45,7 @@ export class OnlineService {
     public dbSettings: dataBaseSettings,
     public tables: tableSettings[]
   ) {
-    this._openDataBase().then(() => {
+    this._openDataBase().then((data) => {
       this.isReady$.next(true);
       this.isReady$.complete();
     }, (error) => {
@@ -188,6 +188,9 @@ export class OnlineService {
 
       return Promise.all(allRequestsPromiseArr)
         .then((result: boolean[]) => result.every((item) => item));
+    }, (error) => {
+      console.error(error, ': store error: failed to send all deferred requests');
+      return false;
     });
   }
 
@@ -210,7 +213,7 @@ export class OnlineService {
     return this.dataBase.getByKey('state', 1);
   }
 
-  private _loadDataFromServer(): Observable<AppState> {
+  private _loadDataFromServer(): any {
     const emptyState: AppState = {
       user: undefined,
       connection: { isWait: false },
@@ -275,8 +278,9 @@ export class OnlineService {
   }
 
   private _openDataBase(): Promise<any> {
+
     return this.dataBase.openDatabase(this.dbSettings.version, (event) => {
-      this.tables.forEach(table => {
+      this.tables.forEach((table) => {
         this._addTable(event, table);
       });
     });
@@ -288,10 +292,16 @@ export class OnlineService {
       autoIncrement: settings.autoIncrement,
     };
 
-    event.currentTarget.result.createObjectStore(
-      settings.name,
-      settingsObject,
-    );
+    if (!settings.keyPath && !settings.autoIncrement) {
+      event.currentTarget.result.createObjectStore(
+        settings.name,
+      );
+    } else {
+      event.currentTarget.result.createObjectStore(
+        settings.name,
+        settingsObject,
+      );
+    }
   }
 }
 
