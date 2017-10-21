@@ -10,8 +10,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "s": "ng serve --hmr -e=hmr",
-    "p": "ng build --aot --prod",
-    "deploy": "ng build --aot --prod --base-href 'https://mauserkurz.github.io/teacher-app/'"
+    "p": "ng build --aot --prod"
   },
   "private": true,
   "dependencies": {
@@ -46,7 +45,6 @@
     "@types/jasmine": "~2.5.53",
     "@types/jasminewd2": "~2.0.2",
     "@types/node": "~6.0.60",
-    "angular-cli-ghpages": "^0.5.1",
     "angular2-template-loader": "^0.6.2",
     "codelyzer": "~3.1.1",
     "electron": "^1.7.8",
