@@ -1,6 +1,7 @@
 # проект PWA Teacher app
 
 ## [рабочее приложение на heroku](https://teacher-serve.herokuapp.com/#/)
+### логин - JohnDoe, пароль - JohnDoe
 * описание: progressive web application для систематизации учета занятий студентов
 * фреймворк: angular 4.4.3
 * основной язык: русский
